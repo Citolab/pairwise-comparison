@@ -1,0 +1,164 @@
+﻿@page
+@model CompareModel
+@{
+    ViewData["Title"] = "Compare";
+}
+<div id="overlay">
+    <div class="w-100 d-flex justify-content-center align-items-center">
+        <div class="spinner"></div>
+    </div>
+</div>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Quit</h5>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to quit this session?<br>
+                You can always return here with the same start code.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">No</button>
+                <a asp-page-handler="Exit" class="btn btn-outline-dark btn-ok">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row align-items-start">
+    <div class="col-4">
+        <h4 class="mt-3">@User.Identity?.Name</h4>
+    </div>
+    <div class="col-4 text-center">
+        <h1 class="display-4">Pairwise</h1>
+        @* <div class="d-flex justify-content-center"> *@
+        @* </div> *@
+    </div>
+    <div class="col-4 text-right">
+        <a type="button" href="#" data-toggle="modal" data-target="#confirm-delete" title="Quit this session.">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-box-arrow-right mt-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+        </a>
+        @* <button class="btn btn-outline-dark mt-3">Stop</button> *@
+    </div>
+</div>
+
+<div class="row align-items-center mb-3 flex-grow-1 overflow-auto">
+
+    @if (Model.Items.Any())
+    {
+        <div class="col-12">
+            <div class="card-deck">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="card item" id="@item.Key" onclick="setSelectedItem(this,'@item.Key')">
+                        @* <div class="card-header">Header</div> *@
+                        <div class="card-body">
+                            @* <h5 class="card-title">Text</h5> *@
+                            <p class="card-text">@item.Value.Text</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-12 text-center d-flex justify-content-center">
+            <div class="card w-50 border-primary">
+                <div class="card-header bg-primary  text-white">Finished</div>
+                <div class="card-body">
+                    <h5 class="card-title">Thanks!</h5>
+                    <p class="card-text">You've made all of the comparisons in this session.</p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<div class="row align-items-end mb-3">
+    <div class="col-4">
+        @if (Model.Items.Any())
+        {
+            <div class="text-muted" id="timer"></div>
+        }
+    </div>
+    <div class="col-4 text-center">@Model.ComparisonsDone / @Model.ComparisonsTotal</div>
+    <div class="col-4 text-right">
+        @if (Model.Items.Any())
+        {
+            <form method="post">
+                <input type="hidden" asp-for="SelectedItemIdentifier">
+                <input type="hidden" asp-for="Duration">
+                <button id="submitButton" class="btn btn-primary btn-lg" type="submit" onclick="overlay();let e=this;setTimeout(function(){e.disabled=true;e.innerText='Aan het opslaan..'},0);return true;"
+                        disabled>
+                    Volgende
+                </button>
+            </form>
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @if (Model.Items.Any())
+    {
+        <script>
+            let count_seconds=true;
+            function overlay() {
+                count_seconds=false;
+              document.getElementById("overlay").style.display = "flex";
+            }
+            function setSelectedItem(target, itemIdentifier) {
+              document.getElementById('SelectedItemIdentifier').value=itemIdentifier;
+              let t = $(target);
+              t.removeClass('item');
+              t.addClass('item-selected');
+              t.siblings().removeClass('item-selected');
+              t.siblings().addClass('item');
+              document.getElementById('submitButton').disabled=false;
+            }
+
+            let vis = (function(){
+                let stateKey, eventKey, keys = {
+                    hidden: "visibilitychange",
+                    webkitHidden: "webkitvisibilitychange",
+                    mozHidden: "mozvisibilitychange",
+                    msHidden: "msvisibilitychange"
+                };
+                for (stateKey in keys) {
+                    if (stateKey in document) {
+                        eventKey = keys[stateKey];
+                        break;
+                    }
+                }
+                return function(c) {
+                    if (c) document.addEventListener(eventKey, c);
+                    return !document[stateKey];
+                }
+            })();
+
+            let seconds = 0;
+            let hasFocus = true;
+            setInterval(function() {
+                if (count_seconds && vis()) {
+                     seconds++;
+                     document.getElementById('Duration').value=seconds;
+                     $('#timer').html(`${("00" + Math.floor(seconds/60)).slice(-2)}:${("00"+ seconds % 60).slice(-2)}`);
+                     if (!hasFocus) {
+                        hasFocus=true;
+                        document.title = document.title.substring(0, document.title.indexOf(" (paused)"));
+                     }
+                } else {
+                    if (count_seconds && hasFocus) {
+                        hasFocus=false;
+                        document.title = document.title + " (paused)";
+                    }
+                }
+            }, 1000);
+        </script>
+    }
+}

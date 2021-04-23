@@ -1,0 +1,199 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    /*position: relative;*/
+    height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    /*padding-bottom: 60px;*/
+    /*height: calc(100% - 40px);*/
+    height: 100%;
+}
+
+.main-container {
+    max-height: 100%;
+    /*padding-bottom: 40px;*/
+}
+
+.footer {
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*margin: 0px;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+    /*white-space: nowrap;*/
+    /*background-color: white;*/
+    height: 41px;
+    line-height: 40px; /* Vertically center the text there */
+    text-align: center;
+}
+
+pre {
+    /* https://stackoverflow.com/questions/248011/how-do-i-wrap-text-in-a-pre-tag */
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+/*.card-deck {*/
+/*    max-height: 100%;*/
+/*    overflow-y: auto;*/
+/*}*/
+
+/*.card {*/
+/*    !*min-height: 10vh;*!*/
+/*    !*max-height: 80vh;*!*/
+/*    height: 100%;*/
+/*    overflow-y: auto;*/
+/*}*/
+
+.item-selected {
+    background-color: #a0eea0;
+}
+
+.item {
+    background-color: #f8f9fa;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+p.card-text {
+    white-space: pre-wrap;
+}
+
+.item:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+    /*background-color: #e1e1e1 !important;*/
+}
+
+tr[onclick]:hover td {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/*spinner overlay*/
+
+.spinner {
+    height: 60px;
+    width: 60px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    -webkit-animation: rotation .6s infinite linear;
+    -moz-animation: rotation .6s infinite linear;
+    -o-animation: rotation .6s infinite linear;
+    animation: rotation .6s infinite linear;
+    border-left: 6px solid rgba(0, 174, 239, .15);
+    border-right: 6px solid rgba(0, 174, 239, .15);
+    border-bottom: 6px solid rgba(0, 174, 239, .15);
+    border-top: 6px solid rgba(0, 174, 239, .8);
+    border-radius: 100%;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes rotation {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes rotation {
+    from {
+        -o-transform: rotate(0deg);
+    }
+    to {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+#overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}

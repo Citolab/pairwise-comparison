@@ -1,0 +1,53 @@
+﻿@page
+@model SectionModel
+@{
+    ViewData["Title"] = Model.TestSectionModel.Title;
+}
+<div class="row mb-3">
+    <div class="col-9">
+        <h1>@Model.TestSectionModel.Title</h1>
+        <p>Number of items: @Model.TestSectionModel.ItemCount</p>
+    </div>
+    <div class="col-3">
+        <h3>Add start codes</h3>
+        <form class="form-horizontal" asp-route-id="@Model.TestSectionModel.Id"ß>
+            <div class="input-group input-group-sm">
+                <input type="number" asp-for="NumberOfStartCodes" placeholder="Number of start codes" class="form-control" aria-label="Number of start codes" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Add</button>
+                </div>
+            </div>
+            <div class="text-danger" asp-validation-summary="All"></div>
+        </form>
+        <a class="btn btn-sm btn-primary" asp-page-handler="ResultsBySection" asp-route-id="@Model.TestSectionModel.Id">Download session results</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Sessions (@Model.TestSessions.Count)</h3>
+        <table class="table table-striped table-condensed table-sm">
+            <thead>
+            <tr>
+                <th>Start code</th>
+                <th>Status</th>
+                <th>Name</th>
+                <th>Done</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var testSession in Model.TestSessions)
+            {
+                <tr>
+                    <td>@testSession.StartCode</td>
+                    <td>@testSession.Status</td>
+                    <td>@testSession.Name</td>
+                    <td>@testSession.ComparisonsDone</td>
+                    <td>@testSession.ComparisonsTotal</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

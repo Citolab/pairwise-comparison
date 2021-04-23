@@ -1,0 +1,21 @@
+﻿{
+  "personalNeedsAndPreferences": null,
+  "demographics": null,
+  "priorData": [
+    {
+      "glossaryURI": null,
+      "key": "thetaStart",
+      "value": "[\r\n  0,\r\n  0,\r\n  0\r\n]"
+    },
+    {
+      "glossaryURI": null,
+      "key": "priorMu",
+      "value": "0"
+    },
+    {
+      "glossaryURI": null,
+      "key": "priorSigma",
+      "value": "1"
+    }
+  ]
+}

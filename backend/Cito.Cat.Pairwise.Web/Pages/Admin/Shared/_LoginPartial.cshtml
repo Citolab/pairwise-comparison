@@ -1,0 +1,10 @@
+﻿@using Cito.Cat.Pairwise.Web.Models
+@if (User.Identity.IsAuthenticated && User.IsInRole(UserRole.Admin.ToString()))
+{
+    <ul class="navbar-nav navbar-right">
+        <li class="navbar-text">Hi, @User.Identity.Name</li>
+        <li>
+            <a class="nav-link text-dark" asp-page="./Index" asp-page-handler="SignOut">Sign out</a>
+        </li>
+    </ul>
+}

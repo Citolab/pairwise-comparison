@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cito.Cat.Core\Cito.Cat.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Accord.Math" Version="3.8.0" />
+      <PackageReference Include="Accord.Statistics" Version="3.8.0" />
+    </ItemGroup>
+
+</Project>

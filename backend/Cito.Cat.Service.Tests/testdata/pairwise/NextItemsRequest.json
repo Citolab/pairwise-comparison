@@ -1,0 +1,103 @@
+﻿{
+  "assessmentResult": {
+    "context": null,
+    "testResult": null,
+    "itemResult": [
+      {
+        "identifier": "1",
+        "sequenceIndex": null,
+        "datestamp": "2020-09-17T19:47:52.8395277+02:00",
+        "sessionStatus": "final",
+        "responseVariables": null,
+        "templateVariables": null,
+        "outcomeVariables": [
+          {
+            "identifier": "SCORE",
+            "cardinality": "single",
+            "baseType": null,
+            "view": null,
+            "interpretation": null,
+            "longInterpretation": null,
+            "normalMaximum": null,
+            "normalMinimum": null,
+            "masteryValue": null,
+            "value": [
+              {
+                "fieldIdentifier": null,
+                "baseType": null,
+                "value": "1"
+              }
+            ]
+          },
+          {
+            "identifier": "DURATION",
+            "cardinality": "single",
+            "baseType": null,
+            "view": null,
+            "interpretation": null,
+            "longInterpretation": null,
+            "normalMaximum": null,
+            "normalMinimum": null,
+            "masteryValue": null,
+            "value": [
+              {
+                "fieldIdentifier": null,
+                "baseType": null,
+                "value": "50"
+              }
+            ]
+          }
+        ],
+        "candidateComment": null
+      },
+      {
+        "identifier": "2",
+        "sequenceIndex": null,
+        "datestamp": "2020-09-17T19:47:52.840149+02:00",
+        "sessionStatus": "final",
+        "responseVariables": null,
+        "templateVariables": null,
+        "outcomeVariables": [
+          {
+            "identifier": "SCORE",
+            "cardinality": "single",
+            "baseType": null,
+            "view": null,
+            "interpretation": null,
+            "longInterpretation": null,
+            "normalMaximum": null,
+            "normalMinimum": null,
+            "masteryValue": null,
+            "value": [
+              {
+                "fieldIdentifier": null,
+                "baseType": null,
+                "value": "0"
+              }
+            ]
+          },
+          {
+            "identifier": "DURATION",
+            "cardinality": "single",
+            "baseType": null,
+            "view": null,
+            "interpretation": null,
+            "longInterpretation": null,
+            "normalMaximum": null,
+            "normalMinimum": null,
+            "masteryValue": null,
+            "value": [
+              {
+                "fieldIdentifier": null,
+                "baseType": null,
+                "value": "50"
+              }
+            ]
+          }
+        ],
+        "candidateComment": null
+      }
+    ]
+  },
+  "sessionState": "ew0KICAic2Vzc2lvbklkZW50aWZpZXIiOiAiOW13ejN1Yk1La09DWFdNZzNnRUZBdyIsDQogICJjb21wYXJpc29uVG90YWwiOiAyLA0KICAicGFpcnNEYXRhIjogW10sDQogICJ0aGV0YUxhc3QiOiBbDQogICAgMCwNCiAgICAwLA0KICAgIDANCiAgXSwNCiAgInBvc3RlcmlvckVzdGltYXRlcyI6IG51bGwNCn0="
+}

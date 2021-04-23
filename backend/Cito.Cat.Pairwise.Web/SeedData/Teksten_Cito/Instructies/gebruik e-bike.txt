@@ -1,0 +1,41 @@
+Gebruik e-bike
+
+Het eBike-systeem kan alleen geactiveerd worden, wanneer aan de volgende voorwaarden is voldaan:
+– Een voldoende geladen accu is geplaatst (zie gebruiksaanwijzing van de accu).
+– De boordcomputer is juist in de houder geplaatst (zie „Boordcomputer plaatsen en verwijderen
+(zie afbeelding A)“, Pagina Nederlands – 1).
+– De snelheidssensor is correct aangesloten (zie gebruiksaanwijzing van de aandrijfeenheid)
+
+eBike-systeem in-/uitschakelen
+
+Voor het inschakelen van het eBike-systeem heeft u de volgende mogelijkheden:
+– Is de boordcomputer bij het plaatsen in de houder al ingeschakeld, dan wordt het eBike-systeem automatisch ingeschakeld.
+– Druk bij geplaatste boordcomputer en geplaatste eBikeaccu één keer kort op de aan/uit-toets (5) van de boordcomputer.
+– Druk bij geplaatste boordcomputer op de aan/uit-toets van de eBike-accu (er zijn van de fietsfabrikant afhankelijke oplossingen mogelijk waarbij de aan/uit-toets van de
+accu niet toegankelijk is; zie gebruiksaanwijzing van de accu).
+
+De aandrijving wordt geactiveerd, zodra u op de pedalen trapt (behalve in de functie duwhulp of op ondersteuningsniveau OFF). Het motorvermogen richt zich naar het ingestelde ondersteuningsniveau op de boordcomputer. Zodra u in de normale modus stopt met op de pedalen te trappen of zodra u een snelheid van 25/45 km/h heeft bereikt, wordt de ondersteuning door de eBike-aandrijving uitgeschakeld. De aandrijving wordt automatisch weer geactiveerd, zodra u op de pedalen trapt en de snelheid onder 25/45 km/h ligt.
+
+Voor het uitschakelen van het eBike-systeem heeft u de volgende mogelijkheden:
+– Druk gedurende minstens 1 seconde op de aan/uit-toets (5) van de boordcomputer.
+– Schakel de eBike-accu met de aan/uit-toets ervan uit (er zijn van de fietsfabrikant afhankelijke oplossingen mogelijk waarbij de aan/uit-toets van de accu niet toegankelijk
+is; zie gebruiksaanwijzing van de fietsfabrikant).
+– Verwijder de boordcomputer uit de houder.
+Wordt ongeveer 10 minuten lang geen vermogen van de eBike-aandrijving gevraagd (bijv. omdat de eBike stilstaat) en niet op een toets van boordcomputer of bedieningseenheid van de eBike gedrukt, dan schakelen zowel het eBike-systeem als de accu omwille van energiebesparing automatisch uit.
+
+eShift (optioneel)
+Onder eShift verstaat men de integratie van elektronische schakelsystemen in het eBike-systeem. De eShift-componenten zijn door de fabrikant elektrisch met de aandrijfeenheid verbonden. De bediening van de elektronische schakelsystemen is beschreven in een eigen gebruiksaanwijzing.
+
+Energievoorziening van de boordcomputer
+Zit de boordcomputer in de houder (4), is een voldoende geladen accu in de eBike geplaatst en is het eBike-systeem ingeschakeld, dan wordt de boordcomputer via de accu van de
+eBike van energie voorzien.
+Wordt de boordcomputer uit de houder (4) genomen, dan
+gebeurt de energievoorziening via een interne accu. Is de interne accu bij het inschakelen van de boordcomputer zwak,
+dan verschijnt gedurende 3 s <Met fiets verbinden> in de
+tekstaanduiding (d). Daarna schakelt de boordcomputer
+weer uit.
+
+Voor het opladen van de interne accu plaatst u de boordcomputer weer in de houder (4) (wanneer een accu in de eBike is
+geplaatst). Schakel de eBike-accu met de aan/uit-toets ervan in (zie gebruiksaanwijzing van de accu).
+U kunt de boordcomputer ook via de USB-aansluiting opladen. Open hiervoor het afdekkapje (8). Verbind de USB-bus
+(7) van de boordcomputer via een geschikte USB-kabel met een gangbare USB-lader of de USB-aansluiting van een computer (5 V laadspanning; max. 500 mA laadstroom). In de tekstaanduiding (d) van de boordcomputer verschijnt <USB aangesloten>.
