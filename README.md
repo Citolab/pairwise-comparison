@@ -11,7 +11,7 @@ first publication of the IMS CAT Standard (https://www.imsglobal.org/cat). The s
 the standard goes into Public Final stage.
 
 ## Code structure
-<img style="float: right;" src="docs/Cito.Cat-pairwise-arch1.png" title="Project diagram" />
+<img style="float: right;" src="docs/Cito.Cat-pairwise-notests-arch1.png" title="Project diagram" />
 
 The diagram on the right shows the project dependency diagram of the application (excluding the unit test projects). External (NuGet) dependencies are omitted. 
 
