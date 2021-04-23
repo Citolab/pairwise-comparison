@@ -1,10 +1,11 @@
 # Cito.Cat.Pairwise - Pairwise comparison of texts
 ![Screenshot](docs/screenshot1.png)
 ## Introduction 
-This ASP.NET Core (.NET5) web application enables pairwise comparisons of texts. Two texts are shown next to each other, 
-and the assessor clicks the text that best meets the criteria agreed on before starting the comparison session. Using all comparisons
-made in the session, the system uses MCMC sampling (Markov chain Monte Carlo) to estimate theta values for the texts. These estimates are
-then used to determine the next two texts to be shown to the assessor.
+This ASP.NET Core (.NET5) web application enables pairwise comparisons of texts. 
+
+Two texts are shown next to each other, and the user (an assessor) clicks the text that they consider 'best' according to criteria agreed upon beforehand.
+Using all comparisons made in the session, the system uses MCMC sampling (Markov chain Monte Carlo) to estimate theta values for the texts. 
+These estimates are then used to determine the next two texts to be shown to the assessor.
 
 This application uses Cito's modular Computer Adaptive Testing (CAT) service framework which integrates with the upcoming 
 first publication of the IMS CAT Standard (https://www.imsglobal.org/cat). The service framework will be separately published when
