@@ -11,7 +11,7 @@ first publication of the IMS CAT Standard (https://www.imsglobal.org/cat). The s
 the standard goes into Public Final stage.
 
 ## Code structure
-<img style="float: right;" src="docs/Cito.Cat-pairwise-notests-arch1.png" title="Project diagram" />
+<img align="right" src="docs/Cito.Cat-pairwise-notests-arch1.png" title="Project diagram" />
 
 The diagram on the right shows the project dependency diagram of the application (excluding the unit test projects). External (NuGet) dependencies are omitted. 
 
@@ -29,8 +29,6 @@ Contains the interfaces, (domain) models and helper functions used in CAT algori
 
 #### Ims.Cat
 Contains IMS CAT Standard proxy classes, generated using the specification files at https://www.imsglobal.org/cat and https://www.imsglobal.org/question/index.html#version2.1.
-
-![Project diagram](docs/Cito.Cat-pairwise-notests-arch1.png)
 
 ## Database
 The application uses RavenDB (https://ravendb.net/) for persistence. Configure access to your instance in `appsettings.json`.
