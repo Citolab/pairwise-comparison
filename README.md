@@ -1,21 +1,45 @@
 # Cito.Cat.Pairwise - Pairwise comparison of texts
+![Screenshot](docs/screenshot1.png)
 ## Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This ASP.NET Core (.NET5) web application enables pairwise comparisons of texts. Two texts are shown next to each other, 
+and the assessor clicks the text that best meets the criteria agreed on before starting the comparison session. Using all comparisons
+made in the session, the system uses MCMC sampling (Markov chain Monte Carlo) to estimate theta values for the texts. These estimates are
+then used to determine the next two texts to be shown to the assessor.
+
+This application uses Cito's modular Computer Adaptive Testing (CAT) service framework which integrates with the upcoming 
+first publication of the IMS CAT Standard (https://www.imsglobal.org/cat). The service framework will be separately published when
+the standard goes into Public Final stage.
+
+## Code structure
+<img style="float: right;" src="docs/Cito.Cat-pairwise-arch1.png" title="Project diagram" />
+
+The diagram on the right shows the project dependency diagram of the application (excluding the unit test projects). External (NuGet) dependencies are omitted. 
+
+#### Cito.Cat.Pairwise.Web
+The ASP.NET5 web application. The frontend is implemented using Razor Pages.
+
+#### Cito.Cat.Service
+The main entry library to CAT-related apis, providing access to underlying selection algorithms.
+
+#### Cito.Cat.Algorithms.Pairwise
+The pairwise item selection algorithm. Uses Accord.NET (http://accord-framework.net/).
+
+#### Cito.Cat.Core
+Contains the interfaces, (domain) models and helper functions used in CAT algorithms.
+
+#### Ims.Cat
+Contains IMS CAT Standard proxy classes, generated using the specification files at https://www.imsglobal.org/cat and https://www.imsglobal.org/question/index.html#version2.1.
+
+![Project diagram](docs/Cito.Cat-pairwise-notests-arch1.png)
+
+## Database
+The application uses RavenDB (https://ravendb.net/) for persistence. Configure access to your instance in `appsettings.json`.
 
 ## Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1. Build the solution in the IDE of your preference (JetBrains Rider, VS2019, VSCode)
+2. Configure your database      
+3. Start the `Cito.Cat.Pairwise.Web` project, this also seeds 2 sample data sets. The start codes are 1234 and 0000
+4. Profit.
 
 ## Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-## Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+The solution should build without warnings. There are two unit test projects in the solution.
