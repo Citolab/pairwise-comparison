@@ -1,7 +1,4 @@
 using System;
-using Cito.Cat.Algorithms.Pairwise;
-using Cito.Cat.Core.Helpers;
-using Cito.Cat.Core.Interfaces;
 using Cito.Cat.Core.Models;
 using Cito.Cat.Pairwise.Web.Helpers;
 using Cito.Cat.Service.Handlers;
@@ -45,7 +42,6 @@ namespace Cito.Cat.Pairwise.Web
 
         private void AddBusinessLogic(IServiceCollection services)
         {
-            services.AddSingleton<IGoodTime, GoodTime>();
             var catOptions = new CatOptions();
             Configuration.GetSection(CatOptions.Cat).Bind(catOptions);
             services.AddSingleton(catOptions);
@@ -158,7 +154,7 @@ namespace Cito.Cat.Pairwise.Web
             using var documentSession = documentStore.OpenAsyncSession();
             var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
             var catOptions = serviceProvider.GetService<CatOptions>();
-            var catSectionHandler = new CatSectionHandler(new GoodTime(), catOptions, documentSession, loggerFactory);
+            var catSectionHandler = new CatSectionHandler(catOptions, documentSession, loggerFactory);
 
             var seeder = new Seeder(documentSession, catSectionHandler, env.ContentRootPath, loggerFactory);
             seeder.SeedCatSectionsV2().Wait();

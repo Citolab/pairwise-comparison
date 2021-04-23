@@ -7,12 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Cito.Cat.Algorithms.ExternalR\Cito.Cat.Algorithms.ExternalR.csproj" />
-      <ProjectReference Include="..\Cito.Cat.Algorithms.Mst\Cito.Cat.Algorithms.Mst.csproj" />
       <ProjectReference Include="..\Cito.Cat.Algorithms.Pairwise\Cito.Cat.Algorithms.Pairwise.csproj" />
-      <ProjectReference Include="..\Cito.Cat.Algorithms.Wml\Cito.Cat.Algorithms.Wml.csproj" />
       <ProjectReference Include="..\Cito.Cat.Core\Cito.Cat.Core.csproj" />
-      <ProjectReference Include="..\Ims.Cat\Ims.Cat.csproj" />
     </ItemGroup>
 
 </Project>

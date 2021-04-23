@@ -5,12 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using Cito.Cat.Core.Helpers;
-using Cito.Cat.Core.Interfaces;
 using Cito.Cat.Core.Models;
 using Cito.Cat.Core.Models.Section;
 using Ims.Cat.Models;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Session;
 
@@ -20,13 +18,11 @@ namespace Cito.Cat.Service.Handlers
     {
         private readonly IAsyncDocumentSession _asyncDocumentSession;
         private readonly ILoggerFactory _loggerFactory;
-        private readonly IGoodTime _dateTimeProvider;
         private readonly CatOptions _catOptions;
 
-        public CatSectionHandler(IGoodTime dateTimeProvider, CatOptions catOptions,
-            IAsyncDocumentSession asyncDocumentSession, ILoggerFactory loggerFactory)
+        public CatSectionHandler(CatOptions catOptions, IAsyncDocumentSession asyncDocumentSession,
+            ILoggerFactory loggerFactory)
         {
-            _dateTimeProvider = dateTimeProvider;
             _catOptions = catOptions;
             _asyncDocumentSession = asyncDocumentSession;
             _loggerFactory = loggerFactory;
@@ -187,6 +183,7 @@ namespace Cito.Cat.Service.Handlers
 
             try
             {
+                // ReSharper disable once UnusedVariable
                 var catProcessor = CatHelper.GetProcessor(_catOptions, json, _loggerFactory, _asyncDocumentSession);
             }
             catch (Exception e)

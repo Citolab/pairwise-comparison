@@ -2,10 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Cito.Cat.Core.Helpers;
-using Cito.Cat.Core.Interfaces;
 using Cito.Cat.Core.Models;
 using Cito.Cat.Core.Models.Section;
-using Cito.Cat.Core.Models.Session;
 using Ims.Cat.Models;
 using Microsoft.Extensions.Logging;
 using Raven.Client.Documents.Session;

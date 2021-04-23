@@ -3,10 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Cito.Cat.Core.Interfaces;
 using Cito.Cat.Core.Models;
 using Cito.Cat.Service.Handlers;
-using Cito.Cat.Service.Tests.Stubs;
 using Ims.Cat.Models;
 using Microsoft.Extensions.Logging.Abstractions;
 using NUnit.Framework;
@@ -16,12 +14,10 @@ namespace Cito.Cat.Service.Tests
     [ExcludeFromCodeCoverage]
     public class PairwiseCatIntegrationTests : MyRavenTestDriver
     {
-        private readonly IGoodTime _goodTime;
         private readonly JsonSerializerOptions _jsonSerializerOptions;
 
         public PairwiseCatIntegrationTests()
         {
-            _goodTime = new GoodTimeStub();
             _jsonSerializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -32,7 +28,7 @@ namespace Cito.Cat.Service.Tests
                     new JsonStringEnumMemberConverter(JsonNamingPolicy.CamelCase)
                 }
             };
-            
+
             CatOptions = new CatOptions
             {
                 ProcessorTypeName = "PairwiseCatProcessor",
@@ -44,7 +40,7 @@ namespace Cito.Cat.Service.Tests
         public void InitializeSection()
         {
             // arrange
-            var catSectionHandler = new CatSectionHandler(_goodTime, CatOptions, DocumentSession, NullLoggerFactory.Instance);
+            var catSectionHandler = new CatSectionHandler(CatOptions, DocumentSession, NullLoggerFactory.Instance);
             var text = File.ReadAllText(@"testdata/pairwise/SectionInitRequest.json");
             var request =
                 JsonSerializer.Deserialize<SectionDType>(text, _jsonSerializerOptions);
@@ -62,7 +58,7 @@ namespace Cito.Cat.Service.Tests
             // arrange
             Console.WriteLine(Environment.CurrentDirectory);
             // init section
-            var catSectionHandler = new CatSectionHandler(_goodTime, CatOptions, DocumentSession, NullLoggerFactory.Instance);
+            var catSectionHandler = new CatSectionHandler(CatOptions, DocumentSession, NullLoggerFactory.Instance);
             var text = File.ReadAllText(@"testdata/pairwise/SectionInitRequest.json");
             var sectionInitRequest =
                 JsonSerializer.Deserialize<SectionDType>(text, _jsonSerializerOptions);
@@ -90,7 +86,7 @@ namespace Cito.Cat.Service.Tests
             // arrange
             Console.WriteLine(Environment.CurrentDirectory);
             // init section
-            var catSectionHandler = new CatSectionHandler(_goodTime, CatOptions, DocumentSession, NullLoggerFactory.Instance);
+            var catSectionHandler = new CatSectionHandler(CatOptions, DocumentSession, NullLoggerFactory.Instance);
             var text = File.ReadAllText(@"testdata/pairwise/SectionInitRequest.json");
             var sectionInitRequest =
                 JsonSerializer.Deserialize<SectionDType>(text, _jsonSerializerOptions);
@@ -100,8 +96,7 @@ namespace Cito.Cat.Service.Tests
             text = File.ReadAllText(@"testdata/pairwise/SessionInitRequest.json");
             var sessionInitRequest = JsonSerializer.Deserialize<SessionDType>(text, _jsonSerializerOptions);
 
-            var initResponse = catSessionHandler.Initialize(sessionInitRequest, sectionInitResponse.SectionIdentifier)
-                .Result;
+            catSessionHandler.Initialize(sessionInitRequest, sectionInitResponse.SectionIdentifier).Wait();
 
             text = File.ReadAllText(@"testdata/pairwise/NextItemsRequest.json");
             var nextItemsRequest = JsonSerializer.Deserialize<ResultsDType>(text, _jsonSerializerOptions);
